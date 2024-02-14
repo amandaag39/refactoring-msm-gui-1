@@ -11,8 +11,8 @@
 #
 class Character < ApplicationRecord
   def movie
-    # Step 1: define the record of the character in question to a variable (1-n showing child to parent)
-    my_movie_id = self.id
+    # Step 1: from the record of the character in question, get the movie_id from the movie_id column to a variable (1-n showing child to parent)
+    my_movie_id = self.movie_id
 
     # Step 2: search through the movie table for record with the same character id, this give you all the details
     matching_movies = Movie.where({ :id => my_movie_id })
@@ -25,7 +25,7 @@ class Character < ApplicationRecord
   end
 
   def actor
-    my_actor_id = self.id
+    my_actor_id = self.actor_id
 
     matching_actors = Actor.where({ :id => my_actor_id })
 
